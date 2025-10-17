@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 
 const Footer = () => {
   const footerNav = [
@@ -60,21 +59,20 @@ const Footer = () => {
           </Link>
         </div>
 
-
         {/* Footer Columns */}
         <div className="flex flex-col gap-5 md:flex-row md:gap-0">
           {/* Company / Logo Section */}
           <div className="border-t border-[#333333] flex flex-col gap-5 pt-5 md:flex-1 md:border-l md:border-l-[#333333] first-of-type:border-l-0 md:border-y md:py-10 md:px-5">
             <h3 className="text-[10px]/[12px] font-bold tracking-[-0.6px] text-[#999999] uppercase">
-             🏠 HouseMart
+              🏠 HouseMart
             </h3>
 
             <Link
-                href="/about"
-                className="text-[15px]/[22.5px] font-normal tracking-[-0.9px] text-white capitalize hover:text-[#169B4C]"
+              href="/about"
+              className="text-[15px]/[22.5px] font-normal tracking-[-0.9px] text-white capitalize hover:text-[#169B4C]"
             >
               About HouseMart
-              </Link>
+            </Link>
 
             <div className="flex flex-col gap-3 md:flex-row md:gap-4">
               <Link href="/login">
@@ -121,7 +119,7 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Decorative Text Divider (Replaces Image) */}
+        {/* Decorative Text Divider */}
         <div className="border-y border-[#333333] pt-[15px] px-[6px] md:border-t-0 relative flex items-center justify-center">
           <h2 className="text-[80px] md:text-[160px] font-bold text-white/5 tracking-[-4px] select-none pointer-events-none text-center">
             HouseMart
@@ -140,12 +138,10 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110"
               >
-                <Image
-                  src={social.src}
-                  alt={social.name}
-                  width={24}
-                  height={24}
-                  className="brightness-90 hover:brightness-110"
+                <div
+                  className="w-6 h-6 bg-no-repeat bg-contain bg-center brightness-90 hover:brightness-110"
+                  style={{ backgroundImage: `url(${social.src})` }}
+                  aria-label={social.name}
                 />
               </a>
             ))}

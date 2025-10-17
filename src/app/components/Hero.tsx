@@ -21,7 +21,7 @@ export default function Hero() {
         modules={[Autoplay, Pagination]}
         slidesPerView={1}
         loop
-        grabCursor={true}
+        grabCursor
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{
           clickable: true,
@@ -33,31 +33,37 @@ export default function Hero() {
         {heroContent.map((item, index) => (
           <SwiperSlide key={index} className="relative h-full w-full">
             <div className="relative h-full w-full rounded-xl overflow-hidden">
-              {/* Background */}
+              {/* Background image */}
               <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${item.image})` }}
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out hover:scale-105"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                }}
               />
+
               {/* Overlay */}
               <div className="absolute inset-0 bg-black/40" />
-              {/* Content */}
+
+              {/* Slide content */}
               <div className="relative z-10 flex flex-col justify-end h-full p-6 md:p-8 lg:p-10 gap-4 max-w-[600px]">
-                <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
+                <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-snug tracking-tight">
                   {item.title}
                 </h1>
-                <p className="text-white text-lg sm:text-xl md:text-2xl">
+                <p className="text-white text-base sm:text-lg md:text-xl opacity-90 leading-relaxed">
                   {item.description}
                 </p>
+
                 <div className="flex flex-col sm:flex-row gap-4 items-center sm:items-start">
                   <Link
                     href={item.cta1.href}
-                    className="w-[200px] sm:w-auto bg-orange-500 text-white font-semibold rounded-lg px-6 py-3 hover:bg-orange-600 transition text-center"
+                    className="w-[200px] sm:w-auto bg-[#dd6e06] text-white font-semibold rounded-lg px-6 py-3 hover:bg-[#c85f04] transition text-center tracking-tight"
                   >
                     {item.cta1.text}
                   </Link>
+
                   <Link
                     href={item.cta2.href}
-                    className="w-[200px] sm:w-auto bg-white text-orange-500 font-semibold rounded-lg px-6 py-3 hover:bg-orange-50 transition text-center"
+                    className="w-[200px] sm:w-auto bg-white text-[#dd6e06] font-semibold rounded-lg px-6 py-3 hover:bg-[#fff3e6] transition text-center tracking-tight"
                   >
                     {item.cta2.text}
                   </Link>
@@ -68,10 +74,10 @@ export default function Hero() {
         ))}
       </Swiper>
 
-      {/* Pagination Container */}
+      {/* Pagination below the slider */}
       <div className="custom-pagination w-full flex justify-center mt-4" />
 
-      {/* Custom CSS */}
+      {/* Custom Swiper pagination styling */}
       <style jsx>{`
         .custom-pagination .swiper-pagination-bullet {
           width: 12px;
@@ -79,13 +85,11 @@ export default function Hero() {
           background: #ffffff80;
           border-radius: 50%;
           margin: 0 6px;
-          transition: all 0.3s ease; /* smooth transition */
+          transition: all 0.3s ease;
         }
 
-        /* Active bullet grows bigger */
         .custom-pagination .swiper-pagination-bullet-active {
-          width: 24px; /* increased width */
-          height: 24px; /* increased height */
+          transform: scale(1.6);
           background: #169b4c;
         }
       `}</style>

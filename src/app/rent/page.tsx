@@ -16,7 +16,7 @@ import { Autoplay, Pagination } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
 
-export default function BizDirectoryPage() {
+export default function RentPage() {
   const [selectedFilter, setSelectedFilter] = useState(0)
   const [selectedLocation, setSelectedLocation] = useState(0)
 

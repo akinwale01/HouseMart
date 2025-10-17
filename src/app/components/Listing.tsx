@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { EffectFade } from "swiper/modules"
 import type { Swiper as SwiperType } from "swiper"
@@ -51,13 +50,12 @@ export default function Listing({ items }: CardListProps) {
         buttonRef.current?.scrollIntoView({ behavior: "smooth", block: "end" })
       }, 100)
     } else {
-      setShowCount(prev => Math.min(prev + (isMobile ? items.length : 3), items.length))
+      setShowCount((prev) => Math.min(prev + (isMobile ? items.length : 3), items.length))
     }
   }
 
   const visibleItems = items.slice(0, showCount)
 
-  // 🟢 Start autoplay manually on hover
   const handleMouseEnter = (index: number) => {
     const swiper = swiperRefs.current[index]
     if (!swiper) return
@@ -66,16 +64,14 @@ export default function Listing({ items }: CardListProps) {
     const images = swiper.slides.length
     if (images <= 1) return
 
-    // Prevent multiple timers
     if (intervalRefs.current[index]) clearInterval(intervalRefs.current[index]!)
 
     intervalRefs.current[index] = setInterval(() => {
-      swiper.slideToLoop(i, 1200) // smooth fade transition
+      swiper.slideToLoop(i, 1200)
       i = (i + 1) % images
-    }, 2000) // 2 seconds per slide
+    }, 2000)
   }
 
-  // 🔴 Stop autoplay and revert to first image
   const handleMouseLeave = (index: number) => {
     const swiper = swiperRefs.current[index]
     if (!swiper) return
@@ -85,7 +81,7 @@ export default function Listing({ items }: CardListProps) {
       intervalRefs.current[index] = null
     }
 
-    swiper.slideToLoop(0, 1200) // smooth fade back to first image
+    swiper.slideToLoop(0, 1200)
   }
 
   return (
@@ -100,7 +96,7 @@ export default function Listing({ items }: CardListProps) {
             key={index}
             className="bg-[#F5F7FA] rounded-lg flex flex-col border border-[#E6E6E6] overflow-hidden"
           >
-            {/* 🖼️ Image section with hover-only slideshow */}
+            {/* 🖼️ Image section (now background divs instead of <Image/>) */}
             <div
               className="relative w-full h-[260px] group overflow-hidden"
               onMouseEnter={() => handleMouseEnter(index)}
@@ -109,7 +105,7 @@ export default function Listing({ items }: CardListProps) {
               <Swiper
                 modules={[EffectFade]}
                 effect="fade"
-                speed={1200} // smoother fade
+                speed={1200}
                 loop={true}
                 onSwiper={(swiper) => (swiperRefs.current[index] = swiper)}
                 className="h-full w-full"
@@ -120,12 +116,11 @@ export default function Listing({ items }: CardListProps) {
                   : [item.image || "/placeholder.png"]
                 ).map((img, i) => (
                   <SwiperSlide key={i}>
-                    <Image
-                      src={img}
-                      alt={`${item.title}-${i}`}
-                      fill
-                      className="object-cover transition-all duration-[1200ms] ease-in-out group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    <div
+                      className="w-full h-full bg-cover bg-center transition-all duration-[1200ms] ease-in-out group-hover:scale-105"
+                      style={{
+                        backgroundImage: `url(${img})`,
+                      }}
                     />
                   </SwiperSlide>
                 ))}
@@ -142,7 +137,12 @@ export default function Listing({ items }: CardListProps) {
                       className="flex items-center gap-2 border border-[#E6E6E6] rounded-full px-3 py-2 bg-[#F5F7FA] text-black"
                     >
                       {badge.icon && (
-                        <Image src={badge.icon} alt={badge.title} width={16} height={16} />
+                        <div
+                          className="w-4 h-4 bg-center bg-contain bg-no-repeat"
+                          style={{
+                            backgroundImage: `url(${badge.icon})`,
+                          }}
+                        />
                       )}
                       <span className="text-xs sm:text-sm font-normal text-black">
                         {badge.title}
@@ -183,9 +183,7 @@ export default function Listing({ items }: CardListProps) {
             className="flex items-center justify-center gap-2 border rounded-md px-4 py-2 bg-white text-[#169B4C] font-medium border-[#E6E6E6] h-16 w-full sm:w-auto hover:bg-[#E8F5ED] cursor-pointer"
           >
             <span className="text-[15px] md:text-[14px] text-center">
-              {showCount >= items.length
-                ? "Load Less Housing"
-                : "Load More Housing"}
+              {showCount >= items.length ? "Load Less Housing" : "Load More Housing"}
             </span>
           </button>
         )}
