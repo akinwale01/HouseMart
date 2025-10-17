@@ -31,10 +31,10 @@ const Footer = () => {
   ];
 
   const socials = [
-    { name: "Facebook", src: "/Images/icons/facebook.svg", href: "#" },
-    { name: "Twitter", src: "/Images/icons/twitter.svg", href: "#" },
-    { name: "Instagram", src: "/Images/icons/instagram.svg", href: "#" },
-    { name: "LinkedIn", src: "/Images/icons/linkedin.svg", href: "#" },
+    { name: "Facebook", src: "/images/icons/facebook.svg", href: "#" },
+    { name: "Twitter", src: "/images/icons/twitter.svg", href: "#" },
+    { name: "Instagram", src: "/images/icons/instagram.svg", href: "#" },
+    { name: "LinkedIn", src: "/images/icons/linkedin.svg", href: "#" },
   ];
 
   return (

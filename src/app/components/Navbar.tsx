@@ -33,7 +33,7 @@ export default function Navbar() {
   const isActive = (link: string) => pathname === `/${link.toLowerCase()}`;
 
   return (
-    <nav className="fixed top-21 z-50 w-full">
+    <nav className="fixed top-23 z-50 w-full">
       <div className="mx-auto lg:max-w-[1440px] px-4 md:px-14">
         <div className="bg-white border border-gray-300 rounded-xl p-6 flex flex-col lg:flex-row items-center gap-4 relative">
           {/* Logo */}
@@ -96,7 +96,7 @@ export default function Navbar() {
                       )}
                     </div>
 
-                    {/* Dropdown Menu */}
+                    {/* Dropdown Menu (Desktop Only) */}
                     {isDropdown && openDropdown === link && (
                       <div className="absolute left-0 top-full mt-2 bg-white border border-gray-300 rounded-lg shadow-md z-40">
                         <ul className="flex flex-col min-w-[180px] py-2">
@@ -144,21 +144,24 @@ export default function Navbar() {
             }`}
           >
             <ul className="flex flex-col items-center gap-3 text-gray-700 font-medium w-full mt-4">
-              {links.map((link) => (
-                <li key={link}>
-                  <Link
-                    href={`/${link.toLowerCase()}`}
-                    onClick={closeMenu}
-                    className={`w-full text-center text-lg transition-all duration-300 ${
-                      isActive(link)
-                        ? "text-orange-500 text-xl"
-                        : "hover:text-orange-500 hover:text-xl"
-                    }`}
-                  >
-                    {link}
-                  </Link>
-                </li>
-              ))}
+              {/* Filter out Resources and More on mobile */}
+              {links
+                .filter((link) => link !== "Resources" && link !== "More")
+                .map((link) => (
+                  <li key={link}>
+                    <Link
+                      href={`/${link.toLowerCase()}`}
+                      onClick={closeMenu}
+                      className={`w-full text-center text-lg transition-all duration-300 ${
+                        isActive(link)
+                          ? "text-orange-500 text-xl"
+                          : "hover:text-orange-500 hover:text-xl"
+                      }`}
+                    >
+                      {link}
+                    </Link>
+                  </li>
+                ))}
             </ul>
 
             <div className="flex flex-col items-center gap-3 pb-6 w-full mt-4">
