@@ -1,0 +1,44 @@
+.bannerWrapper {
+  width: 100%;
+  overflow: hidden;
+  background-color: #001f0c; /* Green banner background */
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  line-height: 1.6;
+  padding: 10px 0;
+  white-space: nowrap;
+  position: fixed;         /* 👈 stays fixed at the top */
+  top: 0;
+  left: 0;
+  z-index: 50; /* stays above content but below navbar if needed */
+}
+
+/* scrolling container */
+.scrollingText {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 18s linear infinite;
+  text-transform: uppercase;
+}
+
+/* 👇 This makes it pause on hover */
+.bannerWrapper:hover .scrollingText {
+  animation-play-state: paused;
+}
+
+.scrollingText span {
+  margin-right: 3rem;
+  font-size: 15px;
+}
+
+/* Animation */
+@keyframes scroll-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,219 @@
+[
+  {
+    "title": "3-Bedroom Apartment",
+    "amount": "$8000",
+    "description": "Spacious apartments with solar panels and energy-efficient lighting.",
+     "images": [
+    "/Images/3-bedroom.webp",
+    "/Images/4-bedroom.webp",
+    "/Images/condo.webp"
+  ],
+    "badges": [
+      {
+        "title": "22. Whistle Street, California",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+1-800-446-0000",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "Apartment"
+      }
+    ]
+  },
+
+  {
+    "title": "4-Bedroom Duplex",
+    "amount": "$15000",
+    "description": "Modern duplexes with energy-efficient appliances and green building materials.",
+      "images": [
+    "/Images/4-bedroom.webp",
+    "/Images/3-bedroom.webp",
+    "/Images/condo.webp"
+  ],
+    "badges": [
+      {
+        "title": "Chowder Street, Texas",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+1-880-459-0370",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "Duplex"
+      }
+    ]
+
+  },
+
+  {
+    "title": "Double-Decker Condo",
+    "amount": "$12000",
+    "description": "Luxury condos with rooftop gardens and rainwater harvesting systems.",
+      "images": [
+    "/Images/condo.webp",
+    "/Images/4-bedroom.webp",
+    "/Images/3-bedroom.webp"
+  ],
+    "badges": [
+      {
+        "title": "Maddison Square, New York",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+1-800-446-7800",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "Condo"
+      }
+    ]
+
+  },
+
+    {
+    "title": "Cedar Ridge Bungalow",
+    "amount": "$6000",
+    "description": "Single-story bungalows with natural ventilation and sustainable landscaping.",
+      "images": [
+    "/Images/bungalow.webp",
+    "/Images/4-bedroom.webp",
+    "/Images/3-bedroom.webp"
+  ],
+    "badges": [
+      {
+        "title": "15, Cedar Lane, Florida",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+1-800-446-9900",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "Bungalow"
+      }
+    ]
+  },
+
+    {
+    "title": "2-Storeyed Office Space",
+    "amount": "$2500",
+    "description": "Eco-friendly office and retail spaces with green certifications.",
+    "images": [
+    "/Images/office-space.webp",
+    "/Images/4-bedroom.webp",
+    "/Images/3-bedroom.webp"
+  ],
+    "badges": [
+      {
+        "title": "Pick 'N' Pay,New Jersey",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+1-800-446-1234",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "Commercial Space"
+      }
+    ]
+  },
+
+    {
+    "title": "Double Bedded AirBnB",
+    "description": "Sustainable short-term rentals with eco-friendly amenities and local experiences.",
+      "images": [
+    "/Images/airbnb.webp",
+    "/Images/4-bedroom.webp",
+    "/Images/3-bedroom.webp"
+  ],
+    "amount": "$800",
+    "badges": [
+      {
+        "title": "Blue-Dove Street, Illinois",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+1-800-446-5678",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "AirBnB"
+      }
+    ]
+  },
+
+  {
+    "title": "Niagra Falls Villa",
+    "description": "Furnished eco-friendly apartments with solar power and water-saving fixtures.",
+      "images": [
+    "/Images/villa.webp",
+    "/Images/4-bedroom.webp",
+    "/Images/3-bedroom.webp"
+  ],
+    "amount": "$55000",
+    "badges": [
+      {
+        "title": "Kingsway Road, New York",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+1-800-446-4321",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "Villa"
+      }
+    ]
+  },
+
+  {
+    "title": "Luxiurious Cabin",
+    "amount": "$4000",
+    "description": "Sustainable short-term rentals with eco-friendly amenities and local experiences.",
+      "images": [
+    "/Images/cabin.webp",
+    "/Images/4-bedroom.webp",
+    "/Images/3-bedroom.webp"
+  ],
+    "badges": [
+      {
+        "title": "Laguna Woods, California",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+1-800-446-8765",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "Cabin"
+      }
+    ]
+  },
+
+  {
+    "title": "3-Storeyed Office Plus Hanger",
+    "description": "Eco-friendly office and retail spaces with green certifications.",
+    "amount": "$30000",
+      "images": [
+    "/Images/office.webp",
+    "/Images/4-bedroom.webp",
+    "/Images/3-bedroom.webp"
+  ],
+    "badges": [
+      {
+        "title": "Makwema Street, Illinois",
+        "icon": "/Images/icons/location-icon.svg"
+      },
+      {
+        "title": "+2348000000000",
+        "icon": "/Images/icons/phone-icon.svg"
+      },
+      {
+        "title": "Commercial Spaces"
+      }
+    ]
+  }
+]
