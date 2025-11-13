@@ -1,0 +1,87 @@
+[
+  {
+    "q": ["how can i rent a house", "how to rent", "renting process", "rent a property", "lease house", "tenant guide"],
+    "a": "To rent on HouseMart, browse listings, click 'Request to Rent', and fill in your details. The landlord or agent will contact you to finalize inspection and payment. Make sure to review the property details and schedule a viewing if needed."
+  },
+  {
+    "q": ["how do i buy a house", "buy property", "purchase home", "property for sale", "real estate buying", "home purchase"],
+    "a": "Buying is easy! Go to the 'Buy' section, search by location or price, and contact the agent directly. HouseMart ensures listings are verified for safety. You can also filter by property type, size, and amenities."
+  },
+  {
+    "q": ["how do i list my property", "post a house", "add listing", "sell property", "publish listing", "advertise home"],
+    "a": "To list your property, log into your account, click 'Add Listing', upload images, add price and details, and publish. Your property will go live immediately after verification. Make sure your photos are clear and details accurate for faster interest."
+  },
+  {
+    "q": ["what is housemart", "tell me about housemart", "who are you", "about housemart", "housemart info"],
+    "a": "HouseMart is your trusted platform for renting, buying, and managing real estate in Nigeria. We connect tenants, landlords, and agents securely and efficiently. Our mission is to make property transactions easy, transparent, and safe."
+  },
+  {
+    "q": ["how do i contact support", "reach support", "help center", "contact housemart", "support email"],
+    "a": "You can reach our support team by filling out the form on the Support page or by emailing help@housemart.com. We reply within 24 hours. For urgent issues, use the live chat for immediate assistance."
+  },
+  {
+    "q": ["is my payment safe", "secure payment", "trust", "scam", "payment protection", "money safety"],
+    "a": "Yes! HouseMart uses verified payment channels and protects all user data. Never send money outside the app to avoid fraud. Always use the in-app payment system for safety."
+  },
+  {
+    "q": ["how can i become an agent", "join as agent", "register agent", "agent signup", "real estate agent"],
+    "a": "To join as an agent, sign up for a HouseMart account and select 'Agent Account' during registration. You’ll get access to tools to manage your listings, communicate with clients, and promote properties."
+  },
+  {
+    "q": ["how can i become a customer", "join as customer", "register customer", "customer signup", "real estate customer"],
+    "a": "To join as a customer, sign up for a HouseMart account and select 'Customer Account' during registration. You’ll get access to browse listings, save favorites, and contact agents directly."
+  },
+
+  {
+    "q": ["can i schedule inspection", "book inspection", "see property", "property viewing", "home visit"],
+    "a": "Yes! Click 'Book Inspection' on any property listing, select your preferred date and time, and the agent will confirm it with you. You can also request a virtual tour if available."
+  },
+  {
+    "q": ["how do i reset my password", "forgot password", "login issues", "password help", "recover account"],
+    "a": "Click 'Forgot Password' on the login page. Enter your email, and we'll send you a reset link immediately. Follow the instructions in the email to reset your password safely."
+  },
+  {
+    "q": ["how can i verify a listing", "fake listing", "check property", "verify property", "property legitimacy"],
+    "a": "HouseMart verifies listings before approval. Verified listings show a green 'Verified Badge'. Always check for that badge before contacting any agent to avoid scams."
+  },
+  {
+    "q": ["what fees do you charge", "commission", "charges", "cost", "service fee"],
+    "a": "HouseMart is free for tenants and buyers! Agents pay a small service fee only when premium features or ads are used. There are no hidden charges for users browsing or contacting listings."
+  },
+  {
+    "q": ["how can i update my profile", "change email", "edit account", "update details", "account settings"],
+    "a": "Go to your profile settings after logging in. You can update your name, contact info, password, and preferences there."
+  },
+  {
+    "q": ["do you operate outside nigeria", "international", "other countries", "global", "africa"],
+    "a": "Currently, HouseMart operates primarily in Nigeria. Expansion to other African countries is underway."
+  },
+  {
+    "q": ["can i chat with an agent", "contact agent", "talk to landlord", "message agent", "agent communication"],
+    "a": "Yes! But only available to registered users. After signing up, you can message agents directly through the listing page."
+  },
+  {
+    "q": ["what if i get scammed", "report fraud", "scam alert", "fraud report", "fraudulent listing"],
+    "a": "If you suspect a scam, report it immediately using the 'Report Listing' button or email support@housemart.com. Our team investigates and takes swift action."
+  },
+  {
+    "q": ["mortgage help", "loan", "financing", "home loan", "property finance"],
+    "a": "HouseMart does not provide loans directly. For property financing, consult a bank or licensed financial advisor. We can connect you to agents who provide guidance on approved lenders."
+  },
+  {
+    "q": ["legal issues", "contract help", "agreement", "lease contract", "property law"],
+    "a": "For legal matters like contracts or agreements, consult a licensed real estate lawyer. Agents can assist you in understanding contract terms but cannot provide legal advice."
+  },
+  {
+    "q": ["neighborhood info", "area guide", "local info", "location details"],
+    "a": "HouseMart provides basic neighborhood info on listings, like amenities and nearby services. For detailed insights, visit the area or contact the agent."
+  },
+  {
+    "q": ["virtual tour", "photos", "video tour", "property images"],
+    "a": "Many listings include photos and virtual tours. You can view these directly on the property page or schedule a live inspection after signing up."
+  },
+  {
+    "q": ["non-user questions", "general questions", "without account", "browsing property", "explore"],
+    "a": "You can browse most properties and view photos or general details without signing up. To contact agents, save favorites, or schedule viewings, please sign up for a free account."
+  }
+]

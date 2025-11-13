@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
+    unoptimized: true, // Disable Next.js optimization for remote images (Cloudinary handles it)
+  },
 };
 
 export default nextConfig;

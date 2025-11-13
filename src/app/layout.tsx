@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
+import SessionProviderWrapper from "./SessionProviderWrapper";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import ScrollingBanner from "./components/ScrollingBanner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Import modern & elegant fonts
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,14 +27,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`flex flex-col min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ScrollingBanner />
-        <Navbar />
-        <main className="">
-          {children}
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <main className={`flex flex-col min-h-screen bg-[#fafafa] text-[#222] ${inter.variable} ${playfair.variable} antialiased`}>
+
+          <div className= "font-[var(--font-inter)]">
+            <SessionProviderWrapper>
+              {children}
+            </SessionProviderWrapper>
+          </div>
+
         </main>
-        <Footer />
       </body>
     </html>
   );

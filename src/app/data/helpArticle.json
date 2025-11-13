@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Account Issues",
+    "items": [
+      "How to reset your password",
+      "Update your profile information",
+      "Verify your email address"
+    ]
+  },
+  {
+    "title": "Rent & Buy Questions",
+    "items": [
+      "How to inquire about a property",
+      "Understanding rent agreements",
+      "Tips for first-time buyers"
+    ]
+  },
+  {
+    "title": "Payments & Billing",
+    "items": [
+      "Payment methods we accept",
+      "Invoice and receipts",
+      "Refund policies"
+    ]
+  },
+  {
+    "title": "Technical Support",
+    "items": [
+      "Troubleshooting login errors",
+      "Browser compatibility",
+      "Mobile app issues"
+    ]
+  },
+  {
+    "title": "Legal & Policies",
+    "items": [
+      "Privacy policy overview",
+      "Terms and conditions",
+      "How to report a violation"
+    ]
+  }
+]

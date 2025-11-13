@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "Inside a $50M Beverly Hills Mansion with Secret Waterfalls",
+    "desc": "Architectural Digest takes you inside a California masterpiece blending modern luxury with natural tranquility.",
+    "image": "/blog1.jpg",
+    "category": "Luxury Homes",
+    "author": "Architectural Digest",
+    "date": "Oct 8, 2025",
+    "url": "https://www.architecturaldigest.com/story/inside-a-50-million-dollar-beverly-hills-mansion"
+  },
+  {
+    "id": 2,
+    "title": "How a Couple Turned a Run-Down Cabin into a Dream Lake House",
+    "desc": "From abandoned wood shack to modern lakefront escape — this couple’s renovation journey is pure inspiration.",
+    "image": "/blog2.jpg",
+    "category": "Home Makeover",
+    "author": "House Beautiful",
+    "date": "Sep 28, 2025",
+    "url": "https://www.housebeautiful.com/remodel-renovation/a40990390/lake-house-makeover/"
+  },
+  {
+    "id": 3,
+    "title": "Why More Buyers Are Choosing Eco-Friendly Smart Homes",
+    "desc": "Sustainability meets innovation — see how green homes are redefining luxury in 2025.",
+    "image": "/blog3.jpg",
+    "category": "Smart Living",
+    "author": "The Guardian",
+    "date": "Sep 19, 2025",
+    "url": "https://www.theguardian.com/environment/2025/sep/19/smart-eco-homes-future"
+  },
+  {
+    "id": 4,
+    "title": "From Garage to Glory: The Story Behind Airbnb’s First Listing",
+    "desc": "It started with an air mattress in a San Francisco living room — and became a global real estate revolution.",
+    "image": "/blog4.jpg",
+    "category": "Entrepreneurship",
+    "author": "BBC Business",
+    "date": "Aug 24, 2025",
+    "url": "https://www.bbc.com/news/business-64980512"
+  },
+  {
+    "id": 5,
+    "title": "The Forgotten Paris Apartment Untouched for 70 Years",
+    "desc": "A stunning time capsule filled with art and furniture from the 1940s was discovered in the heart of Paris.",
+    "image": "/blog5.jpg",
+    "category": "History & Culture",
+    "author": "CNN Travel",
+    "date": "Aug 14, 2025",
+    "url": "https://edition.cnn.com/style/article/paris-apartment-70-years-intact/index.html"
+  },
+  {
+    "id": 6,
+    "title": "Tiny Living Revolution: How Designers Are Rethinking Small Spaces",
+    "desc": "Clever architecture and design tricks are turning compact homes into luxurious, functional sanctuaries.",
+    "image": "/blog6.jpg",
+    "category": "Design Trends",
+    "author": "Dezeen",
+    "date": "Jul 30, 2025",
+    "url": "https://www.dezeen.com/2025/07/30/tiny-homes-design-trends/"
+  }
+]

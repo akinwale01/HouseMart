@@ -8,32 +8,32 @@ const Footer = () => {
       title: "Company",
       links: [
         { name: "About Us", url: "/about" },
-        { name: "Contact", url: "/contact" },
-        { name: "Careers", url: "/careers" },
+        { name: "Support", url: "/support" },
+        { name: "View On-Sale Properties", url: "/buy" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { name: "Blog", url: "/blog" },
+        { name: "Blog", url: "/blogs" },
         { name: "FAQ", url: "/faq" },
-        { name: "Help Center", url: "/help" },
+        { name: "Help Center", url: "/help-center" },
       ],
     },
     {
       title: "Legal",
       links: [
-        { name: "Privacy Policy", url: "/privacy" },
-        { name: "Terms & Conditions", url: "/terms" },
+        { name: "Privacy Policy", url: "/legal" },
+        { name: "Terms & Conditions", url: "/legal" },
       ],
     },
   ];
 
   const socials = [
-    { name: "Facebook", src: "/images/icons/facebook.svg", href: "#" },
-    { name: "Twitter", src: "/images/icons/twitter.svg", href: "#" },
-    { name: "Instagram", src: "/images/icons/instagram.svg", href: "#" },
-    { name: "LinkedIn", src: "/images/icons/linkedin.svg", href: "#" },
+    { name: "Facebook", src: "/images/icons/facebook.svg", url: "https://facebook.com" },
+    { name: "Twitter", src: "/images/icons/twitter.svg", url: "https://twitter.com" },
+    { name: "Instagram", src: "/images/icons/instagram.svg", url: "https://instagram.com" },
+    { name: "LinkedIn", src: "/images/icons/linkedin.svg", url: "https://linkedin.com" },
   ];
 
   return (
@@ -62,7 +62,7 @@ const Footer = () => {
         {/* Footer Columns */}
         <div className="flex flex-col gap-5 md:flex-row md:gap-0">
           {/* Company / Logo Section */}
-          <div className="border-t border-[#333333] flex flex-col gap-5 pt-5 md:flex-1 md:border-l md:border-l-[#333333] first-of-type:border-l-0 md:border-y md:py-10 md:px-5">
+          <div className="border-t border-[#333333] flex flex-col gap-5 pt-5 md:flex-1 md:border-l md:border-l-[#333333] first-of-type:border-l-0 md:border-y md:py-10 md:px-4">
             <h3 className="text-[10px]/[12px] font-bold tracking-[-0.6px] text-[#999999] uppercase">
               🏠 HouseMart
             </h3>
@@ -89,7 +89,7 @@ const Footer = () => {
                   className="flex gap-2 justify-center items-center rounded-[8px] bg-transparent px-5 h-12 cursor-pointer text-[#169B4C] border border-[#169B4C] capitalize transition-all hover:bg-[#169B4C] hover:text-white"
                   aria-label="List your property"
                 >
-                  Buy and sell
+                  Sell
                 </button>
               </Link>
             </div>
@@ -133,7 +133,7 @@ const Footer = () => {
             {socials.map((social) => (
               <a
                 key={social.name}
-                href={social.href}
+                href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-transform hover:scale-110"
@@ -150,13 +150,13 @@ const Footer = () => {
           {/* Policies and Copyright */}
           <div className="flex flex-col gap-6 items-start justify-center sm:items-center md:items-start md:flex-row md:gap-6">
             <Link
-              href="/privacy"
+              href="/legal"
               className="text-[13px]/[19.5px] font-normal tracking-[-0.78px] text-[#CCCCCC] capitalize hover:text-white"
             >
               Privacy Policy
             </Link>
             <Link
-              href="/terms"
+              href="/legal"
               className="text-[13px]/[19.5px] font-normal tracking-[-0.78px] text-[#CCCCCC] capitalize hover:text-white"
             >
               Terms of Service
