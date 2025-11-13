@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   Home,
@@ -28,32 +27,14 @@ interface AgentSidebarProps {
   collapsed: boolean;
   toggleCollapse: () => void;
   onLogoutClick: () => void;
+  user?: UserData | null;
 }
 
-export default function AgentSidebar({ collapsed, toggleCollapse, onLogoutClick }: AgentSidebarProps) {
-  const [user, setUser] = useState<UserData>({ username: "Agent" });
+export default function AgentSidebar({ collapsed, toggleCollapse, onLogoutClick, user }: AgentSidebarProps) {
   const pathname = usePathname();
 
-  useEffect(() => {
-    const updateFromStorage = () => {
-      const storedUser = localStorage.getItem("user") || sessionStorage.getItem("user");
-      if (storedUser) {
-        try {
-          const parsed: UserData = JSON.parse(storedUser);
-          setUser({
-            username: parsed.username || "Agent",
-            profilePicture: parsed.profilePicture || "",
-          });
-        } catch (e) {
-          console.error("Error parsing user data:", e);
-        }
-      }
-    };
-
-    updateFromStorage();
-    window.addEventListener("storage", updateFromStorage);
-    return () => window.removeEventListener("storage", updateFromStorage);
-  }, []);
+  const displayName = user?.username || "Agent";
+  const profilePicture = user?.profilePicture || null;
 
   const navGroups = [
     {
@@ -83,48 +64,32 @@ export default function AgentSidebar({ collapsed, toggleCollapse, onLogoutClick 
   ];
 
   return (
-    <nav
-      className={`flex flex-col text-gray-800 dark:text-gray-100 border-r border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out
-      ${collapsed ? "w-20 items-center" : "w-64"} h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-md`}
-    >
+    <nav className={`flex flex-col text-gray-800 dark:text-gray-100 border-r border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out
+      ${collapsed ? "w-20 items-center" : "w-64"} h-screen bg-white/70 dark:bg-gray-900/70 backdrop-blur-md`}>
+
       {/* User Header */}
-      <div
-        className={`flex p-3 w-full transition-all duration-300 ${
-          collapsed ? "flex-col justify-center gap-2" : "items-center justify-between"
-        }`}
-      >
+      <div className={`flex p-3 w-full transition-all duration-300 ${collapsed ? "flex-col justify-center gap-2" : "items-center justify-between"}`}>
         <div className="flex items-center gap-3">
-          {user.profilePicture ? (
-            <Image
-              src={user.profilePicture}
-              alt="Profile"
-              width={40}
-              height={40}
-              className="rounded-full object-cover aspect-square min-w-10 min-h-10"
-            />
+          {profilePicture ? (
+            <Image src={profilePicture} alt="Profile" width={40} height={40} className="rounded-full object-cover aspect-square min-w-10 min-h-10" />
           ) : (
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-green-400 to-blue-500 text-white font-semibold">
-              {user.username
-                ? user.username
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .toUpperCase()
-                : "A"}
+              {displayName
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .toUpperCase()}
             </div>
           )}
           {!collapsed && (
             <div className="flex flex-col min-w-0">
               <span className="text-sm text-gray-500 dark:text-gray-400">Hello,</span>
-              <span className="text-base font-semibold truncate capitalize">{user.username}</span>
+              <span className="text-base font-semibold truncate capitalize">{displayName}</span>
             </div>
           )}
         </div>
 
-        <button
-          onClick={toggleCollapse}
-          className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-        >
+        <button onClick={toggleCollapse} className="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">
           {collapsed ? <ChevronRight size={18} className="text-gray-500" /> : <ChevronLeft size={18} className="text-gray-500" />}
         </button>
       </div>
@@ -142,17 +107,10 @@ export default function AgentSidebar({ collapsed, toggleCollapse, onLogoutClick 
               {group.links.map(({ icon: Icon, label, href }) => {
                 const active = pathname === href;
                 return (
-                  <Link
-                    key={href}
-                    href={href}
-                    className={`flex items-center gap-3 p-3 rounded-md transition-colors w-full
-                      ${active ? "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300" : "hover:bg-gray-100 dark:hover:bg-gray-800"}
-                      ${collapsed ? "justify-center" : ""}`}
-                  >
-                    <Icon
-                      size={18}
-                      className={`shrink-0 ${active ? "text-green-600 dark:text-green-300" : "text-gray-700 dark:text-gray-300"}`}
-                    />
+                  <Link key={href} href={href} className={`flex items-center gap-3 p-3 rounded-md transition-colors w-full
+                    ${active ? "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300" : "hover:bg-gray-100 dark:hover:bg-gray-800"}
+                    ${collapsed ? "justify-center" : ""}`}>
+                    <Icon size={18} className={`shrink-0 ${active ? "text-green-600 dark:text-green-300" : "text-gray-700 dark:text-gray-300"}`} />
                     {!collapsed && <span className="text-sm font-medium">{label}</span>}
                   </Link>
                 );
@@ -164,12 +122,7 @@ export default function AgentSidebar({ collapsed, toggleCollapse, onLogoutClick 
 
       {/* Logout Button */}
       <div className="p-4 border-t border-gray-200 dark:border-gray-800 shrink-0">
-        <button
-          onClick={onLogoutClick}
-          className={`flex items-center gap-3 p-3 cursor-pointer rounded-md bg-green-100/60 hover:bg-green-200/80 dark:bg-green-900/50 dark:hover:bg-green-800/70 transition-colors w-full ${
-            collapsed ? "justify-center " : ""
-          }`}
-        >
+        <button onClick={onLogoutClick} className={`flex items-center gap-3 p-3 cursor-pointer rounded-md bg-green-100/60 hover:bg-green-200/80 dark:bg-green-900/50 dark:hover:bg-green-800/70 transition-colors w-full ${collapsed ? "justify-center " : ""}`}>
           <LogOut size={18} className="text-red-500" />
           {!collapsed && <span className="text-sm font-medium text-red-500">Log Out</span>}
         </button>

@@ -93,6 +93,7 @@ export default function ForgotPasswordPage() {
     }
   };
 
+  // ✅ Updated to call the correct route and send password/email at top level
   const handleUpdatePassword = async (e: FormEvent) => {
     e.preventDefault();
     if (!newPassword) return setFeedback("⚠️ Please enter a new password.");
@@ -101,12 +102,12 @@ export default function ForgotPasswordPage() {
     setLoading(true);
     setFeedback("");
     try {
-      const res = await fetch("/api/complete-profile", {
+      const res = await fetch("/api/update-forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email,
-          extraData: { password: newPassword },
+          email,            // top-level email
+          password: newPassword, // top-level password
         }),
       });
       const data = await res.json();
@@ -129,28 +130,21 @@ export default function ForgotPasswordPage() {
           Reset Your Password
         </h1>
 
-        {/* Feedback Messages */}
-            {feedback && (
-            <div
-                className={`
-                relative flex items-center justify-center gap-2 text-center p-4 mb-6 rounded-xl border transition-all duration-500 transform animate-feedback
-                ${
-                    feedback.startsWith("✅")
-                    ? "bg-green-50 text-green-700 border-green-200 shadow-md before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:rounded-full before:bg-green-500 before:animate-ping"
-                    : feedback.startsWith("⚠️")
-                    ? "bg-yellow-50 text-yellow-700 border-yellow-200 shadow-md"
-                    : "bg-red-50 text-red-700 border-red-200 shadow-md"
-                }
-                `}
-            >
-                {/* Emoji icon bounce */}
-                <span className={`text-xl ${feedback.startsWith("✅") ? "animate-bounce" : ""}`}>
-                {feedback.startsWith("✅") ? "🎉" : feedback.startsWith("⚠️") ? "⚠️" : "❌"}
-                </span>
-                {/* Text slides in */}
-                <span className="ml-2 font-semibold text-sm animate-slide-in">{feedback.replace(/^✅|⚠️|❌/, "")}</span>
-            </div>
-            )}
+        {feedback && (
+          <div
+            className={`
+              relative flex items-center justify-center gap-2 text-center p-4 mb-6 rounded-xl border transition-all duration-500 transform animate-feedback
+              ${feedback.startsWith("✅") ? "bg-green-50 text-green-700 border-green-200 shadow-md before:absolute before:-left-3 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:rounded-full before:bg-green-500 before:animate-ping"
+                : feedback.startsWith("⚠️") ? "bg-yellow-50 text-yellow-700 border-yellow-200 shadow-md"
+                : "bg-red-50 text-red-700 border-red-200 shadow-md"}
+            `}
+          >
+            <span className={`text-xl ${feedback.startsWith("✅") ? "animate-bounce" : ""}`}>
+              {feedback.startsWith("✅") ? "🎉" : feedback.startsWith("⚠️") ? "⚠️" : "❌"}
+            </span>
+            <span className="ml-2 font-semibold text-sm animate-slide-in">{feedback.replace(/^✅|⚠️|❌/, "")}</span>
+          </div>
+        )}
 
         {/* Step Forms */}
         {step === 1 && (
@@ -210,7 +204,6 @@ export default function ForgotPasswordPage() {
               </button>
             </div>
 
-            {/* Password Hints */}
             <div className="flex flex-col gap-1 text-sm text-gray-700 mb-2 animate-text">
               {Object.entries(passwordHints).map(([key, fulfilled]) => {
                 const hintText = {
@@ -220,27 +213,19 @@ export default function ForgotPasswordPage() {
                   special: "• At least 1 special character",
                 }[key];
                 return (
-                  <div
-                    key={key}
-                    className={`transition-colors duration-300 ${
-                      fulfilled ? "text-green-600 font-semibold animate-pulse" : ""
-                    }`}
-                  >
+                  <div key={key} className={`transition-colors duration-300 ${fulfilled ? "text-green-600 font-semibold animate-pulse" : ""}`}>
                     {hintText}
                   </div>
                 );
               })}
             </div>
 
-            {/* Password strength */}
             <div className="text-sm font-semibold mb-2 animate-text">
               Strength:{" "}
               <span
                 className={`transition-colors duration-500 ${
-                  passwordStrength === "Weak"
-                    ? "text-red-600 animate-pulse"
-                    : passwordStrength === "Medium"
-                    ? "text-yellow-600 animate-pulse"
+                  passwordStrength === "Weak" ? "text-red-600 animate-pulse"
+                    : passwordStrength === "Medium" ? "text-yellow-600 animate-pulse"
                     : "text-green-600 animate-pulse"
                 }`}
               >
@@ -248,7 +233,6 @@ export default function ForgotPasswordPage() {
               </span>
             </div>
 
-            {/* Suggested password */}
             <button
               type="button"
               onClick={generatePassword}

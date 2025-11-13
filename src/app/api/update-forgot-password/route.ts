@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
     if (!email || !password) {
       return NextResponse.json(
-        { success: false, message: "Missing email or password" },
+        { success: false, message: "Missing email or password. Did you verify your email?" },
         { status: 400 }
       );
     }
@@ -24,10 +24,8 @@ export async function POST(req: Request) {
       );
     }
 
-    // ✅ Hash the new password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // ✅ Update only the password while preserving all other fields
     user.password = hashedPassword;
     await user.save();
 
