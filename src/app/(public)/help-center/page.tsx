@@ -73,7 +73,7 @@ export default function HelpCenter() {
   };
 
   return (
-    <main className="flex flex-col lg:mx-auto lg:max-w-[1440px] pb-28 pt-20 px-4 md:px-14 text-gray-900">
+    <main className="flex flex-col lg:mx-auto lg:max-w-[1440px] pb-28 pt-74 px-4 md:px-14 text-gray-900">
       {/* HERO */}
       <section className="w-full text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-extrabold text-black mb-3 leading-[120%] tracking-tight">

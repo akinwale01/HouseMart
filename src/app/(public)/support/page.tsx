@@ -202,7 +202,7 @@ export default function SupportPage() {
             <div
               key={i}
               onClick={() => handleCardClick(option.href, option.restricted, option.action)}
-              className="flex flex-col items-start p-8 border border-gray-200 rounded-2xl shadow-sm bg-gradient-to-br from-white to-gray-50 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer"
+              className="flex flex-col items-start p-8 border border-gray-200 rounded-2xl shadow-sm bg-linear-to-br from-white to-gray-50 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer"
             >
               <div className="text-4xl mb-4">{option.icon}</div>
               <h3 className="text-xl font-semibold mb-2 text-black">{option.title}</h3>
@@ -234,7 +234,7 @@ export default function SupportPage() {
             <div
               key={i}
               onClick={() => handleCardClick(topic.href, false, topic.action)}
-              className="flex flex-col p-8 border border-gray-200 rounded-2xl shadow-sm bg-gradient-to-br from-white to-gray-50 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer"
+              className="flex flex-col p-8 border border-gray-200 rounded-2xl shadow-sm bg-linear-to-br from-white to-gray-50 hover:shadow-lg hover:scale-[1.02] transition-all cursor-pointer"
             >
               <div className="text-5xl mb-4">{topic.icon}</div>
               <h3 className="text-xl font-semibold mb-2 text-black">{topic.title}</h3>
