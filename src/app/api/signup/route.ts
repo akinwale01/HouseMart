@@ -3,6 +3,7 @@ import { connectToDatabase } from "../../../../lib/mongodb";
 import bcrypt from "bcryptjs";
 import User from "../../../../models/User";
 import TempUser from "../../../../models/TempUser";
+import { sendOtpEmail } from "../../../../lib/sendOtp"; // Adjust the path if needed
 
 export async function POST(req: Request) {
   try {
@@ -37,7 +38,7 @@ export async function POST(req: Request) {
       );
     }
 
-    // ✅ 1️⃣ Check if user already exists
+    // 1️⃣ Check if user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return NextResponse.json({
@@ -46,7 +47,7 @@ export async function POST(req: Request) {
       });
     }
 
-    // ✅ 2️⃣ Check if there's an existing temp user
+    // 2️⃣ Check if there's an existing temp user
     let existingTemp = await TempUser.findOne({ email });
 
     if (existingTemp) {
@@ -67,14 +68,14 @@ export async function POST(req: Request) {
       }
     }
 
-    // ✅ 3️⃣ Hash password if not Google signup
+    // 3️⃣ Hash password if not Google signup
     const hashedPassword = password ? await bcrypt.hash(password, 10) : undefined;
 
-    // ✅ 4️⃣ Generate OTP only if manual signup
+    // 4️⃣ Generate OTP only if manual signup
     const otp = !google ? Math.floor(10000 + Math.random() * 90000) : undefined;
     const otpExpiry = !google ? new Date(Date.now() + 10 * 60 * 1000) : undefined;
 
-    // ✅ 5️⃣ Create temp user record
+    // 5️⃣ Create temp user record
     const tempUser = new TempUser({
       firstName,
       lastName,
@@ -95,31 +96,15 @@ export async function POST(req: Request) {
 
     await tempUser.save();
 
-    // ✅ 6️⃣ Send OTP if manual signup
-    if (!google && otp) {
-      // Dynamically determine base URL (works on localhost + production)
-      const baseUrl =
-        process.env.NEXT_PUBLIC_BASE_URL ||
-        (process.env.VERCEL_URL
-          ? `https://${process.env.VERCEL_URL}`
-          : process.env.NEXTAUTH_URL ||
-            process.env.RENDER_EXTERNAL_URL ||
-            "http://localhost:3000");
-
-      const response = await fetch(`${baseUrl}/api/send-otp`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, otp }),
-      });
-
-      if (!response.ok) {
-        console.error("❌ Failed to send OTP:", await response.text());
-        return NextResponse.json(
-          { success: false, message: "Failed to send OTP" },
-          { status: 500 }
-        );
+    // 6️⃣ Send OTP directly without fetch
+      if (!google && otp) {
+        try {
+          await sendOtpEmail(email); // ✅ call directly instead of fetch
+        } catch (err) {
+          console.error("❌ Failed to send OTP:", err);
+          return NextResponse.json({ success: false, message: "Failed to send OTP" }, { status: 500 });
+        }
       }
-    }
 
     return NextResponse.json({
       success: true,
